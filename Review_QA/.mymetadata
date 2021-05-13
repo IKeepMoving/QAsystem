@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Review_QA"
+  id="myeclipse.1526216353395"
+  context-root="/Review_QA"
+  j2ee-spec="5.0"
+  archive="Review_QA.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

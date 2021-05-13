@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 二、总配置文件：引入其他所有配置文件 -->
+	<include file="com/akao/fileupload/upload.xml"></include>
+	<include file="constant.xml"></include>
+	<include file="com/akao/action/search.xml"></include>
+	<include file="com/akao/action/admin.xml"></include>
+	
+	 <package name="emp" extends="struts-default">
+      <global-results>
+      
+         <result name="error">/error/error.jsp</result>
+      
+      
+      </global-results>
+
+         <action name="pair_*" class="com.akao.action.PairAction" method="{1}">
+         
+         <interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="token">
+				<!-- 指定拦截哪些方法需要防止表单重复提交(save) -->
+				<param name="includeMethods">save</param>
+			</interceptor-ref>
+		
+			<!-- 防止表单重复提交，第三步： 如果用户重复提交了跳转到指定的错误页面  -->
+			<result name="invalid.token" type="redirectAction">pair_list</result>
+         
+         
+         <result name="list">/WEB-INF/list.jsp</result>
+         
+         
+          <result name="update">update.jsp</result>
+         </action>
+    </package>
+</struts>
